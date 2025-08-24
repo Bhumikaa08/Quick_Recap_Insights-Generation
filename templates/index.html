@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quick Recap — Summarizer</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Quick Recap</h1>
+      <p class="subtitle">Paste text, upload a file, and get a concise summary. History saved locally on the server.</p>
+    </header>
+
+    <div class="panel">
+      <nav class="tabs">
+        <button class="tab active" data-tab="paste">Paste Text</button>
+        <button class="tab" data-tab="upload">Upload File</button>
+      </nav>
+
+      <section class="tab-content" id="paste" style="display:block;">
+        <textarea id="inputText" rows="10" placeholder="Paste or type your text here..."></textarea>
+
+        <div class="controls">
+          <label>Method</label>
+          <select id="method">
+            <option value="auto">Auto</option>
+            <option value="abstractive">Abstractive</option>
+            <option value="extractive">Extractive</option>
+          </select>
+
+          <label>Summary size</label>
+          <input id="ratio" type="range" min="0.05" max="0.5" step="0.05" value="0.2">
+          <span id="ratioVal">20%</span>
+
+          <button id="summarizeBtn" class="primary">Summarize</button>
+        </div>
+      </section>
+
+      <section class="tab-content" id="upload" style="display:none;">
+        <div class="upload-box">
+          <input id="fileInput" type="file" accept=".pdf,.docx,.txt" />
+          <div class="controls">
+            <label>Method</label>
+            <select id="fileMethod">
+              <option value="auto">Auto</option>
+              <option value="abstractive">Abstractive</option>
+              <option value="extractive">Extractive</option>
+            </select>
+
+            <label>Summary size</label>
+            <input id="fileRatio" type="range" min="0.05" max="0.5" step="0.05" value="0.2">
+            <span id="fileRatioVal">20%</span>
+
+            <button id="uploadBtn" class="primary">Upload & Summarize</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="results">
+      <div class="result-card">
+        <h2>Summary</h2>
+        <div id="summaryText" class="summary">No summary yet — create one above.</div>
+        <pre id="meta" class="meta"></pre>
+      </div>
+
+      <aside class="history">
+        <h3>Recent Summaries</h3>
+        <div id="historyList">Loading...</div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

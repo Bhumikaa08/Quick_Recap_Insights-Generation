@@ -1,0 +1,8 @@
+Flask==2.2.5
+python-dotenv==0.21.1
+Flask-SQLAlchemy==3.0.3
+Flask-Migrate==4.0.7
+python-docx==0.8.11
+pdfplumber==0.7.6
+sumy==0.10.0
+nltk==3.5
